@@ -2,6 +2,7 @@ import { useContext, useState } from 'react';
 import { ChannelContext } from '../context/ChannelContext';
 import { UserContext } from '../context/UserContext';
 import { Channel, User } from '../types';
+import AudioControls from '../components/AudioControls';
 
 const backendUrl = 'http://localhost:8080';
 
@@ -184,6 +185,8 @@ function ShowChannel() {
       </h1>
       <h2 className="text-center text-black ">Created by {owner?.value}</h2>
       {error && <p className="text-red-500">{error}</p>}
+
+      <AudioControls />
 
       <div className="grid grid-cols-3 bg-light-500 my-5">
         {channelMembers &&
