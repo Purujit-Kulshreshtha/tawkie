@@ -43,7 +43,7 @@ export const updateUser = async (req: Request, res: Response) => {
     const { username } = req.params;
     const { user } = req.body;
     const newUser = await userStore.updateEntry(username, user);
-    res.status(200).json(newUser);
+    res.status(200).json(user);
   } catch (error) {
     console.log(error);
     res.status(400).send({ message: error.message });

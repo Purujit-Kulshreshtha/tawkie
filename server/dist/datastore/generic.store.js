@@ -36,6 +36,12 @@ export class GenericStore {
             await this.writeFullStore(newData);
             return data;
         };
+        this.deleteEntry = async (identifier) => {
+            const existingData = await JSON.parse(readFileSync(this.storeFileName, "utf8"));
+            const newData = existingData.filter((data) => data[this.uniqueIdentifier] !== identifier);
+            await this.writeFullStore(newData);
+            return true;
+        };
         this.writeFullStore = async (data) => {
             writeFile(this.storeFileName, JSON.stringify(data), (err) => console.log(err));
         };

@@ -49,10 +49,20 @@ export const updateChannel = async (req, res) => {
     try {
         const { channelName } = req.params;
         const { channel } = req.body;
-        console.log(channel);
         const newChannel = await channelStore.updateEntry(channelName, channel);
-        console.log(newChannel);
         res.status(200).json(newChannel);
+    }
+    catch (error) {
+        console.log(error);
+        res.status(400).send({ message: error.message });
+    }
+};
+export const deleteChannel = async (req, res) => {
+    try {
+        const { channelName } = req.params;
+        console.log(channelName);
+        await channelStore.deleteEntry(channelName);
+        res.status(200).json(true);
     }
     catch (error) {
         console.log(error);

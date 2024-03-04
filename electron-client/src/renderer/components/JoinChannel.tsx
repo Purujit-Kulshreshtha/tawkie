@@ -1,12 +1,14 @@
 import React, { useContext, useState } from 'react';
 import { UserContext } from '../context/UserContext';
 import { User } from '../types';
+import { ChannelContext } from '../context/ChannelContext';
 
 const backendUrl = 'http://localhost:8080';
 
 function JoinChannel() {
   const [channelName, setChannelName] = useState('');
   const { username, channelsIn, setUser } = useContext(UserContext);
+  const { setChannel } = useContext(ChannelContext);
   const [error, setError] = useState<string | null>(null);
 
   const joinChannel = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -70,8 +72,8 @@ function JoinChannel() {
     );
     const updatedUser = await updatedUserResult.json();
 
-    // set channel context
     setUser(updatedUser);
+    setChannel(updatedChannel.channelName);
   };
   return (
     <div className="bg-light-500 rounded-xl px-10 py-5 shadow-xl w-9/12">

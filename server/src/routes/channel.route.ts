@@ -1,6 +1,7 @@
 import express from "express";
 import {
   createChannel,
+  deleteChannel,
   getChannel,
   getChannels,
   updateChannel,
@@ -12,6 +13,6 @@ ChannelRouter.get("/", getChannels);
 ChannelRouter.get("/:channelName", getChannel);
 ChannelRouter.post("/", createChannel);
 ChannelRouter.put("/:channelName", updateChannel);
-// ChannelRouter.delete("/:id", deleteChannel);
+ChannelRouter.delete("/:channelName", deleteChannel);
 
 export default ChannelRouter;

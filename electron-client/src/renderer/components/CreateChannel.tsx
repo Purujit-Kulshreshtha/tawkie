@@ -1,11 +1,13 @@
 import React, { useContext, useState } from 'react';
 import { UserContext } from '../context/UserContext';
+import { ChannelContext } from '../context/ChannelContext';
 
 const backendUrl = 'http://localhost:8080';
 
 function CreateChannel() {
   const [channelName, setChannelName] = useState('');
   const { username } = useContext(UserContext);
+  const { setChannel } = useContext(ChannelContext);
   const [error, setError] = useState<string | null>(null);
 
   const createChannel = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -27,8 +29,8 @@ function CreateChannel() {
       setError(newChannel.message);
       return;
     }
-    //set channel context
-    //trigger refetch user
+    setChannel(newChannel.channelName);
+    window.location.reload();
   };
   return (
     <div className="bg-light-500 rounded-xl px-10 py-5 shadow-xl w-9/12">
