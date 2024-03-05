@@ -179,11 +179,11 @@ function ShowChannel() {
   };
 
   return (
-    <div className="h-screen w-5/6 bg-dark-500">
+    <div className="h-screen w-full bg-dark-500">
       <h1 className="text-center text-white text-4xl font-extrabold">
         {channelName?.value}
       </h1>
-      <h2 className="text-center text-black ">Created by {owner?.value}</h2>
+      <h2 className="text-center text-gray-300 ">Created by {owner?.value}</h2>
       {error && <p className="text-red-500">{error}</p>}
 
       <AudioControls />
@@ -228,7 +228,9 @@ function ShowChannel() {
               Delete Channel
             </button>
             {members?.value && members?.value?.length > 1 && (
-              <p>Remove all members from channel to delete room</p>
+              <p className="text-gray-300">
+                Remove all members from channel to delete room
+              </p>
             )}
           </>
         ) : (

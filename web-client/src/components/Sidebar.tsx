@@ -9,13 +9,25 @@ function Sidebar() {
 
   const { channelsIn } = useContext(UserContext);
   const { setChannel } = useContext(ChannelContext);
+  const isConnected = false;
   const channels = channelsIn?.value;
   const selectChannel = (channelName: string) => {
     setChannel(channelName);
   };
 
   return (
-    <div className="h-screen w-1/6 bg-medium-500 flex flex-col justify-start items-center py-8">
+    <div className="h-screen w-[15vw] bg-medium-500 flex flex-col justify-start items-center py-4">
+      <div
+        onClick={() => {
+          console.log("clicked");
+          // socket.emit("audioStream", "test");
+        }}
+        className={`mb-2 ${
+          isConnected ? "bg-green-500 text-white" : "bg-green-100 text-gray-500"
+        } text-xs rounded-lg p-2 uppercase`}
+      >
+        {isConnected ? "Connected" : "Disconnected"}
+      </div>
       {channels &&
         channels.length >= 1 &&
         channels.map((channel) => {

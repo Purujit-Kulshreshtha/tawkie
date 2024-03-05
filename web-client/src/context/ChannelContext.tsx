@@ -1,6 +1,13 @@
-import { ReactElement, createContext, useEffect, useMemo } from "react";
+import {
+  ReactElement,
+  createContext,
+  useContext,
+  useEffect,
+  useMemo,
+} from "react";
 import { Channel } from "../types";
 import { IContextValue, useIContext } from "./contextValue";
+import { UserContext } from "./UserContext";
 
 const backendUrl = process.env.REACT_APP_BACKEND_URL;
 
@@ -71,8 +78,11 @@ export function ChannelContextProvider({ children }: Props) {
       }
     };
     getAndSetUser();
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  const { username } = useContext(UserContext);
 
   return (
     <ChannelContext.Provider value={value}>{children}</ChannelContext.Provider>
