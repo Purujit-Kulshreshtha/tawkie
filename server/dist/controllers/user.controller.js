@@ -1,6 +1,6 @@
 import { DataStores, GenericStore } from "../datastore/generic.store.js";
 const userStore = new GenericStore(DataStores.USER, "username", "User");
-export const getUsers = async (res) => {
+export const getUsers = async (req, res) => {
     try {
         const allUsers = await userStore.readFullStore();
         res.status(200).json(allUsers);

@@ -1,14 +1,1 @@
-[
-  {
-    "channelName": "Pulkit Channel",
-    "members": ["Pulkit", "Purujit"],
-    "owner": "Pulkit"
-  },
-  { "channelName": "Z", "members": ["Bhola"], "owner": "Bhola" },
-  {
-    "channelName": "New Channel 1",
-    "members": ["Purujit"],
-    "owner": "Purujit"
-  },
-  { "channelName": "Langley", "members": ["Purujit"], "owner": "Purujit" }
-]
+[]

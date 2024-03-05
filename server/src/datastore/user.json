@@ -1,9 +1,1 @@
-[
-  { "username": "Pulkit", "channelsIn": ["Pulkit Channel"] },
-  { "username": "Pranjal", "channelsIn": [] },
-  { "username": "Bhola", "channelsIn": ["Z"] },
-  {
-    "username": "Purujit",
-    "channelsIn": ["New Channel 1", "Pulkit Channel", "Langley"]
-  }
-]
+[]

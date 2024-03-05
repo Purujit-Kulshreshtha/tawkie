@@ -4,7 +4,7 @@ import { Request, Response } from "express";
 
 const userStore = new GenericStore<User>(DataStores.USER, "username", "User");
 
-export const getUsers = async (res: Response) => {
+export const getUsers = async (req: Request, res: Response) => {
   try {
     const allUsers: User[] = await userStore.readFullStore();
     res.status(200).json(allUsers);
