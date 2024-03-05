@@ -3,13 +3,14 @@ import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../context/UserContext";
 import { ChannelContext } from "../context/ChannelContext";
+import { SocketContext } from "../context/SocketContext";
 
 function Sidebar() {
   const navigate = useNavigate();
 
   const { channelsIn } = useContext(UserContext);
   const { setChannel } = useContext(ChannelContext);
-  const isConnected = false;
+  const { socket, isConnected } = useContext(SocketContext);
   const channels = channelsIn?.value;
   const selectChannel = (channelName: string) => {
     setChannel(channelName);
@@ -19,15 +20,15 @@ function Sidebar() {
     <div className="h-screen w-[15vw] bg-medium-500 flex flex-col justify-start items-center py-4">
       <div
         onClick={() => {
-          console.log("clicked");
-          // socket.emit("audioStream", "test");
+          socket && socket.emit("socket-test");
         }}
         className={`mb-2 ${
           isConnected ? "bg-green-500 text-white" : "bg-green-100 text-gray-500"
-        } text-xs rounded-lg p-2 uppercase`}
+        } text-[8px] rounded-lg p-2 uppercase`}
       >
         {isConnected ? "Connected" : "Disconnected"}
       </div>
+
       {channels &&
         channels.length >= 1 &&
         channels.map((channel) => {

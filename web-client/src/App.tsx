@@ -6,6 +6,7 @@ import ShowChannel from "./pages/ShowChannel";
 import { ChannelContextProvider } from "./context/ChannelContext";
 import Home from "./pages/Home";
 import { useEffect, useState } from "react";
+import { SocketContextProvider } from "./context/SocketContext";
 
 export default function App() {
   const [backendResponse, setbackendResponse] = useState<string | null>(null);
@@ -34,14 +35,16 @@ export default function App() {
   return (
     <UserContextProvider>
       <ChannelContextProvider>
-        <Router>
-          <Routes>
-            <Route path="/" element={<Home />}>
-              <Route path="" element={<ShowChannel />} />
-              <Route path="add" element={<AddChannel />} />
-            </Route>
-          </Routes>
-        </Router>
+        <SocketContextProvider>
+          <Router>
+            <Routes>
+              <Route path="/" element={<Home />}>
+                <Route path="" element={<ShowChannel />} />
+                <Route path="add" element={<AddChannel />} />
+              </Route>
+            </Routes>
+          </Router>
+        </SocketContextProvider>
       </ChannelContextProvider>
     </UserContextProvider>
   );

@@ -26,11 +26,16 @@ const io = new Server(server, {
 });
 
 io.on("connection", (socket) => {
-  // Handle incoming audio stream
   console.log("c", socket.id);
-  socket.on("audioStream", (audioData) => {
-    socket.broadcast.emit("audioStream", audioData);
+
+  socket.on("socket-test", () => {
+    console.log("socket-test");
   });
+
+  // Handle incoming audio stream
+  // socket.on("audioStream", (audioData) => {
+  //   socket.broadcast.emit("audioStream", audioData);
+  // });
 
   socket.on("disconnect", () => {
     console.log("d", socket.id);
