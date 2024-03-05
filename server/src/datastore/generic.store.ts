@@ -75,8 +75,10 @@ export class GenericStore<T> {
   };
 
   private writeFullStore = async (data: T[]) => {
-    writeFile(this.storeFileName, JSON.stringify(data), (err) =>
-      console.log(err)
-    );
+    writeFile(this.storeFileName, JSON.stringify(data), (err) => {
+      if (err) {
+        console.log(err);
+      }
+    });
   };
 }

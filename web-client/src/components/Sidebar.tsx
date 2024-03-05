@@ -1,8 +1,8 @@
 // eslint-disable-next-line import/named
-import { useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { UserContext } from '../context/UserContext';
-import { ChannelContext } from '../context/ChannelContext';
+import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import { UserContext } from "../context/UserContext";
+import { ChannelContext } from "../context/ChannelContext";
 
 function Sidebar() {
   const navigate = useNavigate();
@@ -10,7 +10,6 @@ function Sidebar() {
   const { channelsIn } = useContext(UserContext);
   const { setChannel } = useContext(ChannelContext);
   const channels = channelsIn?.value;
-
   const selectChannel = (channelName: string) => {
     setChannel(channelName);
   };
@@ -33,7 +32,7 @@ function Sidebar() {
         })}
       <button
         type="button"
-        onClick={() => navigate('/add')}
+        onClick={() => navigate("/add")}
         className="m-2 bg-dark-500 p-2 pb-3 rounded-full w-[50px] h-[50px] flex justify-center items-center text-white text-3xl shadow-md  cursor-pointer"
       >
         +

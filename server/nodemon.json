@@ -1,0 +1,3 @@
+{
+  "ignore": ["src/datastore/user.json", "src/datastore/channel.json"]
+}

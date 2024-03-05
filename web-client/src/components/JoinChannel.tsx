@@ -73,7 +73,7 @@ function JoinChannel() {
     const updatedUser = await updatedUserResult.json();
 
     setUser(updatedUser);
-    setChannel(updatedChannel.channelName);
+    setChannel(updatedChannel.channelName, () => window.location.reload());
   };
   return (
     <div className="bg-light-500 rounded-xl px-10 py-5 shadow-xl w-9/12">

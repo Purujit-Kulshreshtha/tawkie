@@ -43,7 +43,11 @@ export class GenericStore {
             return true;
         };
         this.writeFullStore = async (data) => {
-            writeFile(this.storeFileName, JSON.stringify(data), (err) => console.log(err));
+            writeFile(this.storeFileName, JSON.stringify(data), (err) => {
+                if (err) {
+                    console.log(err);
+                }
+            });
         };
         this.storeFileName = `src/datastore/${this.store}.json`;
     }
